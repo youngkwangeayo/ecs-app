@@ -1,0 +1,80 @@
+#  ==============  레포지토리 환경 변수  ==============
+#   AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY,  AWS_DEFAULT_REGION       # CLI
+#   AWS_ECR_REPO, AWS_ECR_NAME                                          # ECR
+#   AWS_TASK_DEFINITION, AWS_ECS_CLUSTER, AWS_ECS_SERVICE               # ECS 라이브
+#   AWS_TASK_DEFINITION_DEV, AWS_ECS_CLUSTER_DEV, AWS_ECS_SERVICE_DEV   # ECS 데브
+# =================================================
+#  내용
+# =================================================
+image: atlassian/default-image:2
+
+pipelines:
+  tags:
+    '*.*.*-dev-*':
+      - step:
+          name: 🏗️ Build & Push Image to ECR
+          services:
+            - docker
+          script:
+            # Docker 이미지 빌드
+            - TARGET_VERSION=$BITBUCKET_TAG
+            - docker build -t $AWS_ECR_NAME:$TARGET_VERSION -t $AWS_ECR_NAME .
+            # ECR에 REPO 태그 지정
+            - docker tag $AWS_ECR_NAME:$TARGET_VERSION $AWS_ECR_REPO/$AWS_ECR_NAME:$TARGET_VERSION
+            - docker tag $AWS_ECR_NAME:$TARGET_VERSION $AWS_ECR_REPO/$AWS_ECR_NAME:latest
+            # ECR에 푸시
+            - pipe: atlassian/aws-ecr-push-image:2.6.0
+              variables:
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID 
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION 
+                IMAGE_NAME: $AWS_ECR_NAME
+                TAGS: "$TARGET_VERSION latest"
+
+      - step:
+          name: 🚀 Deploy to ECS (DEV)
+          image: amazon/aws-cli:2.30.3
+          script:
+            # 레포환경변수 export 및 dev 재할당 _ 스크립트 재사용 위해
+            - export TARGET_VERSION=$BITBUCKET_TAG
+            - export AWS_TASK_DEFINITION=$AWS_TASK_DEFINITION_DEV
+            - export AWS_ECS_CLUSTER=$AWS_ECS_CLUSTER_DEV
+            - export AWS_ECS_SERVICE=$AWS_ECS_SERVICE_DEV
+
+            - chmod +x ./infra/convert-env-to-awsjson.sh ./infra/pipe-task-reversion.sh
+
+            # Reversion & deploy
+            - source ./infra/pipe-task-reversion.sh ./infra/convert-env-to-awsjson.sh .env.dev
+
+            - aws ecs update-service --cluster $AWS_ECS_CLUSTER --service $AWS_ECS_SERVICE --task-definition $AWS_TASK_DEFINITION:$NEW_REVISION --force-new-deployment
+            - echo "ECS await provisioning..."
+            
+            - aws ecs wait services-stable --cluster $AWS_ECS_CLUSTER --services $AWS_ECS_SERVICE
+            - echo "✅ ECS deployment completed successfully!"
+    '*.*.*':
+        - step:
+            name: Image Build and Push to ECR
+            services:
+              - docker
+            script:
+              # Docker 이미지 빌드
+              - TARGET_VERSION=$BITBUCKET_TAG
+              - docker build -t $AWS_ECR_NAME:$TARGET_VERSION -t $AWS_ECR_NAME .
+              # ECR에 REPO 태그 지정
+              - docker tag $AWS_ECR_NAME:$TARGET_VERSION $AWS_ECR_REPO/$AWS_ECR_NAME:$TARGET_VERSION
+              - docker tag $AWS_ECR_NAME:$TARGET_VERSION $AWS_ECR_REPO/$AWS_ECR_NAME:latest
+              # ECR에 푸시
+              - pipe: atlassian/aws-ecr-push-image:2.6.0
+                variables:
+                  AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID 
+                  AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                  AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION 
+                  IMAGE_NAME: $AWS_ECR_NAME # 실제 ECR 레포네임 사용.
+                  TAGS: "$TARGET_VERSION latest" # 이미지 태그_ 버전과 latest
+        - step:
+            name: PROD build task-definition END Deploy Ecs
+            image: amazon/aws-cli:2.30.3 
+            script:
+              - echo "TODO 커스텀 파이프 하나둬서. 비트버킷ui 에서 버전 입력해서 받아와서 진행하기"
+              - echo "OR"
+              - echo "TODO 프리즈마 풀때문에 디비커넥션이뤄져서 베스천 서버에서 env, sh 등 갖고있다가 진행하기"
