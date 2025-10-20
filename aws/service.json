@@ -1,9 +1,9 @@
 {
     "services": [
         {
-            "serviceArn": "arn:aws:ecs:ap-northeast-2:************:service/ecs-dev-coffeezip/service-dev-myapp",
+            "serviceArn": "arn:aws:ecs:ap-northeast-2:************:service/ecs-dev-mysolution/service-dev-myapp",
             "serviceName": "service-dev-myapp",
-            "clusterArn": "arn:aws:ecs:ap-northeast-2:************:cluster/ecs-dev-coffeezip",
+            "clusterArn": "arn:aws:ecs:ap-northeast-2:************:cluster/ecs-dev-mysolution",
             "loadBalancers": [
                 {
                     "targetGroupArn": "arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3",

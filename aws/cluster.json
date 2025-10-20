@@ -1,0 +1,22 @@
+{
+    "clusters": [
+        {
+            "clusterArn": "arn:aws:ecs:ap-northeast-2::************::cluster/ecs-dev-mysolution",
+            "clusterName": "ecs-dev-mysolution",
+            "status": "ACTIVE",
+            "registeredContainerInstancesCount": 0,
+            "runningTasksCount": 2,
+            "pendingTasksCount": 0,
+            "activeServicesCount": 1,
+            "statistics": [],
+            "tags": [],
+            "settings": [],
+            "capacityProviders": [
+                "FARGATE",
+                "FARGATE_SPOT"
+            ],
+            "defaultCapacityProviderStrategy": []
+        }
+    ],
+    "failures": []
+}
