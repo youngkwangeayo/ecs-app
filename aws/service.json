@@ -1,0 +1,605 @@
+{
+    "services": [
+        {
+            "serviceArn": "arn:aws:ecs:ap-northeast-2:************:service/ecs-dev-coffeezip/service-dev-myapp",
+            "serviceName": "service-dev-myapp",
+            "clusterArn": "arn:aws:ecs:ap-northeast-2:************:cluster/ecs-dev-coffeezip",
+            "loadBalancers": [
+                {
+                    "targetGroupArn": "arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3",
+                    "containerName": "myapp",
+                    "containerPort": 3849
+                }
+            ],
+            "serviceRegistries": [],
+            "status": "ACTIVE",
+            "desiredCount": 2,
+            "runningCount": 2,
+            "pendingCount": 0,
+            "capacityProviderStrategy": [
+                {
+                    "capacityProvider": "FARGATE",
+                    "weight": 1,
+                    "base": 0
+                }
+            ],
+            "platformVersion": "LATEST",
+            "platformFamily": "Linux",
+            "taskDefinition": "arn:aws:ecs:ap-northeast-2:************:task-definition/task-dev-myapp:52",
+            "deploymentConfiguration": {
+                "deploymentCircuitBreaker": {
+                    "enable": true,
+                    "rollback": true
+                },
+                "maximumPercent": 200,
+                "minimumHealthyPercent": 100
+            },
+            "deployments": [
+                {
+                    "id": "ecs-svc/1596425058107482963",
+                    "status": "PRIMARY",
+                    "taskDefinition": "arn:aws:ecs:ap-northeast-2:************:task-definition/task-dev-myapp:52",
+                    "desiredCount": 2,
+                    "pendingCount": 0,
+                    "runningCount": 2,
+                    "failedTasks": 0,
+                    "createdAt": "2025-10-20T14:31:53.672000+09:00",
+                    "updatedAt": "2025-10-20T14:35:06.397000+09:00",
+                    "capacityProviderStrategy": [
+                        {
+                            "capacityProvider": "FARGATE",
+                            "weight": 1,
+                            "base": 0
+                        }
+                    ],
+                    "platformVersion": "1.4.0",
+                    "platformFamily": "Linux",
+                    "networkConfiguration": {
+                        "awsvpcConfiguration": {
+                            "subnets": [
+                                "subnet-*****************",
+                                "subnet-*****************",
+                                "subnet-*****************"
+                            ],
+                            "securityGroups": [
+                                "sg-******************",
+                                "sg-*********",
+                                "sg-******************"
+                            ],
+                            "assignPublicIp": "ENABLED"
+                        }
+                    },
+                    "rolloutState": "COMPLETED",
+                    "rolloutStateReason": "ECS deployment ecs-svc/1596425058107482963 completed."
+                }
+            ],
+            "roleArn": "arn:aws:iam::************:role/aws-service-role/ecs.amazonaws.com/AWSServiceRoleForECS",
+            "events": [
+                {
+                    "id": "d608d0fd-651e-4ec6-8aed-b4e81cd1783e",
+                    "createdAt": "2025-10-20T14:35:06.404000+09:00",
+                    "message": "(service service-dev-myapp) has reached a steady state."
+                },
+                {
+                    "id": "e0102f4f-759f-4f5b-8ff4-9bf690aaf99c",
+                    "createdAt": "2025-10-20T14:35:06.403000+09:00",
+                    "message": "(service service-dev-myapp) (deployment ecs-svc/1596425058107482963) deployment completed."
+                },
+                {
+                    "id": "d4930db8-f4d8-44c3-8e8d-29e69d8625b6",
+                    "createdAt": "2025-10-20T14:34:12.728000+09:00",
+                    "message": "(service service-dev-myapp, taskSet ecs-svc/8398160652206804201) has begun draining connections on 1 tasks."
+                },
+                {
+                    "id": "593a2dfe-c6f1-4e1d-84b2-3ba40690f790",
+                    "createdAt": "2025-10-20T14:34:12.722000+09:00",
+                    "message": "(service service-dev-myapp) deregistered 1 targets in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3)"
+                },
+                {
+                    "id": "e5a9fe95-77ad-4a3b-ad9d-00ac1b7b1521",
+                    "createdAt": "2025-10-20T14:34:00.888000+09:00",
+                    "message": "(service service-dev-myapp) has stopped 1 running tasks: (task dee4f3dc8441427c8d1e7a08f0385384)."
+                },
+                {
+                    "id": "eb2ee913-2bf5-4502-9e6d-699786351b9b",
+                    "createdAt": "2025-10-20T14:33:39.203000+09:00",
+                    "message": "(service service-dev-myapp, taskSet ecs-svc/8398160652206804201) has begun draining connections on 1 tasks."
+                },
+                {
+                    "id": "2ebd5b73-1a85-4ab6-a6d9-78be35dd89ab",
+                    "createdAt": "2025-10-20T14:33:39.197000+09:00",
+                    "message": "(service service-dev-myapp) deregistered 1 targets in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3)"
+                },
+                {
+                    "id": "dbd011ac-08fd-4255-b7e1-3e6af0964b89",
+                    "createdAt": "2025-10-20T14:33:29.381000+09:00",
+                    "message": "(service service-dev-myapp) has stopped 1 running tasks: (task fc5b0743c34b4a4181c89fe166cbc6d2)."
+                },
+                {
+                    "id": "6eed03e6-18de-47df-8189-bc49f3336f10",
+                    "createdAt": "2025-10-20T14:33:09.154000+09:00",
+                    "message": "(service service-dev-myapp) registered 1 targets in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3)"
+                },
+                {
+                    "id": "33c7f2a7-a874-454d-9412-7a57cbc59cd3",
+                    "createdAt": "2025-10-20T14:32:36.641000+09:00",
+                    "message": "(service service-dev-myapp) has started 1 tasks: (task cbbf0cb66dfc4a619a5436b03557b1a2)."
+                },
+                {
+                    "id": "4ec4f1f6-985e-4cf6-ba97-d0532ed5a6d3",
+                    "createdAt": "2025-10-20T14:32:36+09:00",
+                    "message": "(service service-dev-myapp) registered 1 targets in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3)"
+                },
+                {
+                    "id": "b8cd5ad7-b42a-4107-9095-1a064f0d4e8f",
+                    "createdAt": "2025-10-20T14:32:05.512000+09:00",
+                    "message": "(service service-dev-myapp) has started 1 tasks: (task fc64c295d16d49e5aecc4a5cfc23b82a)."
+                },
+                {
+                    "id": "fe8f952e-5a5b-4bd7-8c19-15d8b519ddc8",
+                    "createdAt": "2025-10-20T14:25:09.268000+09:00",
+                    "message": "(service service-dev-myapp) has reached a steady state."
+                },
+                {
+                    "id": "421c97b1-fa5f-4f62-a164-eef968748532",
+                    "createdAt": "2025-10-20T14:25:09.267000+09:00",
+                    "message": "(service service-dev-myapp) (deployment ecs-svc/8398160652206804201) deployment completed."
+                },
+                {
+                    "id": "5c780d15-56e3-43ac-b648-a935354e334a",
+                    "createdAt": "2025-10-20T14:24:05.652000+09:00",
+                    "message": "(service service-dev-myapp, taskSet ecs-svc/9285646795764602315) has begun draining connections on 1 tasks."
+                },
+                {
+                    "id": "268a5ff4-af05-45d7-b119-49716ccf6faa",
+                    "createdAt": "2025-10-20T14:24:05.625000+09:00",
+                    "message": "(service service-dev-myapp) deregistered 1 targets in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3)"
+                },
+                {
+                    "id": "38c474d7-e3d3-422d-9863-3172172faaca",
+                    "createdAt": "2025-10-20T14:23:54.192000+09:00",
+                    "message": "(service service-dev-myapp) has stopped 1 running tasks: (task 4c74aa47e8984917b6bd0717124533ce)."
+                },
+                {
+                    "id": "16d14065-926d-4c4b-9e60-5dd2b545380d",
+                    "createdAt": "2025-10-20T14:23:33.699000+09:00",
+                    "message": "(service service-dev-myapp, taskSet ecs-svc/9285646795764602315) has begun draining connections on 1 tasks."
+                },
+                {
+                    "id": "a35fe366-16f5-497a-9acc-14bd8772b74f",
+                    "createdAt": "2025-10-20T14:23:33.694000+09:00",
+                    "message": "(service service-dev-myapp) deregistered 1 targets in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3)"
+                },
+                {
+                    "id": "38b3dbf9-280f-48dc-9152-799df5016425",
+                    "createdAt": "2025-10-20T14:23:22.190000+09:00",
+                    "message": "(service service-dev-myapp) has stopped 1 running tasks: (task 2586b14426f34b98aaac2dc3b41fafe5)."
+                },
+                {
+                    "id": "b742a136-c6f8-4f9b-9f8d-492f286c4477",
+                    "createdAt": "2025-10-20T14:22:29.678000+09:00",
+                    "message": "(service service-dev-myapp) registered 1 targets in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3)"
+                },
+                {
+                    "id": "7fdcde4d-8c73-4bb8-bbaf-fcc9ba7157fd",
+                    "createdAt": "2025-10-20T14:22:18.968000+09:00",
+                    "message": "(service service-dev-myapp) has started 1 tasks: (task fc5b0743c34b4a4181c89fe166cbc6d2)."
+                },
+                {
+                    "id": "3c0eecdc-48b6-40fc-af57-17a7ca56e0d9",
+                    "createdAt": "2025-10-20T14:21:46.859000+09:00",
+                    "message": "(service service-dev-myapp) has started 1 tasks: (task dee4f3dc8441427c8d1e7a08f0385384)."
+                },
+                {
+                    "id": "e407032b-b3bc-47eb-9656-012c42278e5e",
+                    "createdAt": "2025-10-20T11:44:19.268000+09:00",
+                    "message": "(service service-dev-myapp) has reached a steady state."
+                },
+                {
+                    "id": "2f15fc06-4570-4452-87e8-97aafe78d83b",
+                    "createdAt": "2025-10-20T11:44:19.267000+09:00",
+                    "message": "(service service-dev-myapp) (deployment ecs-svc/9285646795764602315) deployment completed."
+                },
+                {
+                    "id": "567113ec-a704-4eae-9755-02c2c9afc302",
+                    "createdAt": "2025-10-20T11:42:03.924000+09:00",
+                    "message": "(service service-dev-myapp, taskSet ecs-svc/8547573448219660361) has begun draining connections on 1 tasks."
+                },
+                {
+                    "id": "7711e9d7-680d-4c8e-852f-59f4b7078a97",
+                    "createdAt": "2025-10-20T11:42:03.918000+09:00",
+                    "message": "(service service-dev-myapp) deregistered 1 targets in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3)"
+                },
+                {
+                    "id": "9a530e79-6bdf-4e7a-8bec-df23adeb08b8",
+                    "createdAt": "2025-10-20T11:41:54.049000+09:00",
+                    "message": "(service service-dev-myapp) has stopped 1 running tasks: (task 7a7d369ff2c8454fbfd763bb54704b6b)."
+                },
+                {
+                    "id": "03011ba7-3825-4932-b3ab-04f2054b3c01",
+                    "createdAt": "2025-10-20T11:41:06.765000+09:00",
+                    "message": "(service service-dev-myapp) registered 1 targets in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3)"
+                },
+                {
+                    "id": "16cc806d-6f49-43a2-a7a1-aafa99b1677c",
+                    "createdAt": "2025-10-20T11:40:20.720000+09:00",
+                    "message": "(service service-dev-myapp) has started 1 tasks: (task 2586b14426f34b98aaac2dc3b41fafe5)."
+                },
+                {
+                    "id": "8da5e5cf-9672-4b0e-8e61-dfadbde8b54e",
+                    "createdAt": "2025-10-20T11:39:31.445000+09:00",
+                    "message": "(service service-dev-myapp) deregistered 1 targets in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3)"
+                },
+                {
+                    "id": "9de6fcf5-1eab-4fba-be9e-add688be2666",
+                    "createdAt": "2025-10-20T11:39:31.338000+09:00",
+                    "message": "(service service-dev-myapp, taskSet ecs-svc/9285646795764602315) has begun draining connections on 1 tasks."
+                },
+                {
+                    "id": "a1f940f3-d450-4a0b-817f-8a423c851eab",
+                    "createdAt": "2025-10-20T11:39:31.333000+09:00",
+                    "message": "(service service-dev-myapp) deregistered 1 targets in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3)"
+                },
+                {
+                    "id": "26df83e9-d979-4f6a-97e9-41e2208b84f2",
+                    "createdAt": "2025-10-20T11:39:21.425000+09:00",
+                    "message": "(service service-dev-myapp) has stopped 1 running tasks: (task 36824f0d934f4121afcdcd6e329405d9)."
+                },
+                {
+                    "id": "b25f1272-2f9c-4c85-9945-b87ca4e6a731",
+                    "createdAt": "2025-10-20T11:39:21.377000+09:00",
+                    "message": "(service service-dev-myapp) (task 36824f0d934f4121afcdcd6e329405d9) (port 3849) is unhealthy in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3) due to (reason Target is in an Availability Zone that is not enabled for the load balancer)."
+                },
+                {
+                    "id": "1ac93290-7417-4ed4-8fcb-6ae37785f27c",
+                    "createdAt": "2025-10-20T11:36:06.519000+09:00",
+                    "message": "(service service-dev-myapp) registered 1 targets in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3)"
+                },
+                {
+                    "id": "b2d5ec3e-6844-4294-bc5a-a832597dd045",
+                    "createdAt": "2025-10-20T11:35:28.255000+09:00",
+                    "message": "(service service-dev-myapp) has started 1 tasks: (task 36824f0d934f4121afcdcd6e329405d9)."
+                },
+                {
+                    "id": "0878a0df-f415-4969-95ac-2f114573ff1b",
+                    "createdAt": "2025-10-20T11:34:33.640000+09:00",
+                    "message": "(service service-dev-myapp, taskSet ecs-svc/9285646795764602315) has begun draining connections on 1 tasks."
+                },
+                {
+                    "id": "fafaba72-776a-4e90-953a-0418678b0ff6",
+                    "createdAt": "2025-10-20T11:34:24.343000+09:00",
+                    "message": "(service service-dev-myapp) deregistered 1 targets in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3)"
+                },
+                {
+                    "id": "5c9435ea-d2be-43ce-9c25-89f0aafe0894",
+                    "createdAt": "2025-10-20T11:34:23.363000+09:00",
+                    "message": "(service service-dev-myapp) has stopped 1 running tasks: (task a4e6f5e2956846bfa8f4a347817d53fc)."
+                },
+                {
+                    "id": "23807997-dfbc-4b49-931d-58354ca215eb",
+                    "createdAt": "2025-10-20T11:34:23.316000+09:00",
+                    "message": "(service service-dev-myapp) (task a4e6f5e2956846bfa8f4a347817d53fc) (port 3849) is unhealthy in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3) due to (reason Target is in an Availability Zone that is not enabled for the load balancer)."
+                },
+                {
+                    "id": "540d6388-174f-47dd-960e-8a1d379f0337",
+                    "createdAt": "2025-10-20T11:31:11.682000+09:00",
+                    "message": "(service service-dev-myapp) registered 1 targets in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3)"
+                },
+                {
+                    "id": "1c3979f1-2498-40dc-b5a4-9b6627e3f8f4",
+                    "createdAt": "2025-10-20T11:30:29.319000+09:00",
+                    "message": "(service service-dev-myapp) has started 1 tasks: (task a4e6f5e2956846bfa8f4a347817d53fc)."
+                },
+                {
+                    "id": "74a7bb90-1891-4a90-808b-0fda04696283",
+                    "createdAt": "2025-10-20T11:29:24.977000+09:00",
+                    "message": "(service service-dev-myapp) deregistered 1 targets in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3)"
+                },
+                {
+                    "id": "42378490-dc35-4904-8ba1-198e7a945630",
+                    "createdAt": "2025-10-20T11:29:24.880000+09:00",
+                    "message": "(service service-dev-myapp, taskSet ecs-svc/9285646795764602315) has begun draining connections on 1 tasks."
+                },
+                {
+                    "id": "b4d4aa31-dbab-4829-a6b0-7a5dc7f0ba94",
+                    "createdAt": "2025-10-20T11:29:24.874000+09:00",
+                    "message": "(service service-dev-myapp) deregistered 1 targets in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3)"
+                },
+                {
+                    "id": "5e06b2dc-3261-46f1-b1b2-7697e5662168",
+                    "createdAt": "2025-10-20T11:29:14.725000+09:00",
+                    "message": "(service service-dev-myapp) has stopped 1 running tasks: (task 3294f341ab79454a8c185ce14c785f91)."
+                },
+                {
+                    "id": "6c0f2fb0-040b-49e4-a6a8-4abc8fbf2494",
+                    "createdAt": "2025-10-20T11:29:14.678000+09:00",
+                    "message": "(service service-dev-myapp) (task 3294f341ab79454a8c185ce14c785f91) (port 3849) is unhealthy in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3) due to (reason Target is in an Availability Zone that is not enabled for the load balancer)."
+                },
+                {
+                    "id": "52d8894d-eb77-49a2-b0dc-7e81f2925030",
+                    "createdAt": "2025-10-20T11:26:02.906000+09:00",
+                    "message": "(service service-dev-myapp) registered 1 targets in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3)"
+                },
+                {
+                    "id": "364e1d32-e85c-475a-b4c9-3f1c698a1d17",
+                    "createdAt": "2025-10-20T11:25:21.065000+09:00",
+                    "message": "(service service-dev-myapp) has started 1 tasks: (task 3294f341ab79454a8c185ce14c785f91)."
+                },
+                {
+                    "id": "f50df4a4-2708-4df7-a998-0ccca32951f2",
+                    "createdAt": "2025-10-20T11:24:26.545000+09:00",
+                    "message": "(service service-dev-myapp) deregistered 1 targets in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3)"
+                },
+                {
+                    "id": "50c11a63-8ad4-42ab-addc-29f633526a95",
+                    "createdAt": "2025-10-20T11:24:26.452000+09:00",
+                    "message": "(service service-dev-myapp, taskSet ecs-svc/9285646795764602315) has begun draining connections on 1 tasks."
+                },
+                {
+                    "id": "abddea3d-6cce-4e28-9255-c72e5d45d320",
+                    "createdAt": "2025-10-20T11:24:26.446000+09:00",
+                    "message": "(service service-dev-myapp) deregistered 1 targets in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3)"
+                },
+                {
+                    "id": "a06562d8-d503-45be-8b04-10d485b4be1b",
+                    "createdAt": "2025-10-20T11:24:16.370000+09:00",
+                    "message": "(service service-dev-myapp) has stopped 1 running tasks: (task 72b73e95cabe4acfa15723627a4677ab)."
+                },
+                {
+                    "id": "bc23fd0a-9f23-4c3a-836a-8f533723bd08",
+                    "createdAt": "2025-10-20T11:24:16.321000+09:00",
+                    "message": "(service service-dev-myapp) (task 72b73e95cabe4acfa15723627a4677ab) (port 3849) is unhealthy in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3) due to (reason Target is in an Availability Zone that is not enabled for the load balancer)."
+                },
+                {
+                    "id": "88a69854-7820-4ad9-b914-84fc895cc3d8",
+                    "createdAt": "2025-10-20T11:21:05.677000+09:00",
+                    "message": "(service service-dev-myapp) registered 1 targets in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3)"
+                },
+                {
+                    "id": "410f02c8-da53-4da7-b215-d1bb2d2a5b4c",
+                    "createdAt": "2025-10-20T11:20:22.569000+09:00",
+                    "message": "(service service-dev-myapp) has started 1 tasks: (task 72b73e95cabe4acfa15723627a4677ab)."
+                },
+                {
+                    "id": "8e0c39d0-69be-46b0-ae20-9b75feeb92fc",
+                    "createdAt": "2025-10-20T11:19:28.661000+09:00",
+                    "message": "(service service-dev-myapp) deregistered 1 targets in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3)"
+                },
+                {
+                    "id": "79bfa0f0-9a31-4fbd-9114-51d6b7401bb0",
+                    "createdAt": "2025-10-20T11:19:28.572000+09:00",
+                    "message": "(service service-dev-myapp, taskSet ecs-svc/9285646795764602315) has begun draining connections on 1 tasks."
+                },
+                {
+                    "id": "5c425331-b081-42e1-a26e-d010a180be9d",
+                    "createdAt": "2025-10-20T11:19:28.567000+09:00",
+                    "message": "(service service-dev-myapp) deregistered 1 targets in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3)"
+                },
+                {
+                    "id": "5cb6c7ca-37b5-43db-9649-a95d74ff95e1",
+                    "createdAt": "2025-10-20T11:19:18.097000+09:00",
+                    "message": "(service service-dev-myapp) has stopped 1 running tasks: (task fefea72862e148a6b0cde0d6e70ee36f)."
+                },
+                {
+                    "id": "f610ec34-1714-4668-82bf-1bd2e64edf3a",
+                    "createdAt": "2025-10-20T11:19:18.055000+09:00",
+                    "message": "(service service-dev-myapp) (task fefea72862e148a6b0cde0d6e70ee36f) (port 3849) is unhealthy in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3) due to (reason Target is in an Availability Zone that is not enabled for the load balancer)."
+                },
+                {
+                    "id": "38b9957e-24f3-444d-9048-622b421e5341",
+                    "createdAt": "2025-10-20T11:16:06.692000+09:00",
+                    "message": "(service service-dev-myapp) registered 1 targets in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3)"
+                },
+                {
+                    "id": "9f916b64-9245-49c6-b0fa-aaade30d1e80",
+                    "createdAt": "2025-10-20T11:15:13.534000+09:00",
+                    "message": "(service service-dev-myapp) has started 1 tasks: (task fefea72862e148a6b0cde0d6e70ee36f)."
+                },
+                {
+                    "id": "96f52c4c-cdec-4fbc-a950-2c95f27e2b66",
+                    "createdAt": "2025-10-20T11:14:20.984000+09:00",
+                    "message": "(service service-dev-myapp) deregistered 1 targets in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3)"
+                },
+                {
+                    "id": "0f98b8f9-87a4-475f-96fe-de8df61e0cf6",
+                    "createdAt": "2025-10-20T11:14:20.904000+09:00",
+                    "message": "(service service-dev-myapp, taskSet ecs-svc/9285646795764602315) has begun draining connections on 1 tasks."
+                },
+                {
+                    "id": "76ec9e60-39a2-41f2-b482-a5f1088a9823",
+                    "createdAt": "2025-10-20T11:14:20.898000+09:00",
+                    "message": "(service service-dev-myapp) deregistered 1 targets in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3)"
+                },
+                {
+                    "id": "134b6c45-f17a-454f-bb55-f29a0d109cd5",
+                    "createdAt": "2025-10-20T11:14:19.188000+09:00",
+                    "message": "(service service-dev-myapp) has stopped 1 running tasks: (task 31f127b2ff6e4ec8a354b7bb81a54896)."
+                },
+                {
+                    "id": "3fa89cd8-04e3-4698-af2b-a1de9e716411",
+                    "createdAt": "2025-10-20T11:14:19.134000+09:00",
+                    "message": "(service service-dev-myapp) (task 31f127b2ff6e4ec8a354b7bb81a54896) (port 3849) is unhealthy in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3) due to (reason Target is in an Availability Zone that is not enabled for the load balancer)."
+                },
+                {
+                    "id": "4c7dc0d6-f7c6-4894-b2f4-5f9511e33d07",
+                    "createdAt": "2025-10-20T11:11:07.976000+09:00",
+                    "message": "(service service-dev-myapp) registered 1 targets in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3)"
+                },
+                {
+                    "id": "b27184db-c10d-4ba1-b500-86a2c04c752e",
+                    "createdAt": "2025-10-20T11:10:36.490000+09:00",
+                    "message": "(service service-dev-myapp) has started 1 tasks: (task 31f127b2ff6e4ec8a354b7bb81a54896)."
+                },
+                {
+                    "id": "0ba21a53-3ae7-4616-80fa-63a35da4c0e4",
+                    "createdAt": "2025-10-20T11:09:10.644000+09:00",
+                    "message": "(service service-dev-myapp) deregistered 1 targets in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3)"
+                },
+                {
+                    "id": "ca72621b-0581-4d4e-a8a7-193c5dad7117",
+                    "createdAt": "2025-10-20T11:09:10.555000+09:00",
+                    "message": "(service service-dev-myapp, taskSet ecs-svc/9285646795764602315) has begun draining connections on 1 tasks."
+                },
+                {
+                    "id": "810e2954-42de-4b7a-b67d-70f5c0bf964a",
+                    "createdAt": "2025-10-20T11:09:10.549000+09:00",
+                    "message": "(service service-dev-myapp) deregistered 1 targets in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3)"
+                },
+                {
+                    "id": "438b18f7-f07a-4dc5-90d8-9fd88d34f136",
+                    "createdAt": "2025-10-20T11:09:00.777000+09:00",
+                    "message": "(service service-dev-myapp) has stopped 1 running tasks: (task 2921e7c32e9544e2a2fb3dd5aeca6890)."
+                },
+                {
+                    "id": "012b83cf-ad4a-43b7-a75b-338eb5b567b9",
+                    "createdAt": "2025-10-20T11:09:00.729000+09:00",
+                    "message": "(service service-dev-myapp) (task 2921e7c32e9544e2a2fb3dd5aeca6890) (port 3849) is unhealthy in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3) due to (reason Target is in an Availability Zone that is not enabled for the load balancer)."
+                },
+                {
+                    "id": "eef0c7ec-ad7b-4279-b946-ade6c80f25b6",
+                    "createdAt": "2025-10-20T11:05:37.192000+09:00",
+                    "message": "(service service-dev-myapp) registered 1 targets in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3)"
+                },
+                {
+                    "id": "1c7c312b-2ae7-4b66-a7fe-6fb37728fb75",
+                    "createdAt": "2025-10-20T11:04:45.925000+09:00",
+                    "message": "(service service-dev-myapp) has started 1 tasks: (task 2921e7c32e9544e2a2fb3dd5aeca6890)."
+                },
+                {
+                    "id": "6834e2d2-b9be-4d75-8376-88b374fea5c0",
+                    "createdAt": "2025-10-20T11:04:45.161000+09:00",
+                    "message": "(service service-dev-myapp, taskSet ecs-svc/9285646795764602315) has begun draining connections on 1 tasks."
+                },
+                {
+                    "id": "5f614cab-a83e-4dcc-bead-89709e145bd0",
+                    "createdAt": "2025-10-20T11:04:34.669000+09:00",
+                    "message": "(service service-dev-myapp) deregistered 1 targets in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3)"
+                },
+                {
+                    "id": "07dd185b-852d-41db-a39c-9b1865fdd412",
+                    "createdAt": "2025-10-20T11:04:32.999000+09:00",
+                    "message": "(service service-dev-myapp) has stopped 1 running tasks: (task aac07175c07d4111bb85d34a17d62dfa)."
+                },
+                {
+                    "id": "4b89169f-3ad7-4dfa-8e54-c721624ea737",
+                    "createdAt": "2025-10-20T11:04:32.949000+09:00",
+                    "message": "(service service-dev-myapp) (task aac07175c07d4111bb85d34a17d62dfa) (port 3849) is unhealthy in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3) due to (reason Target is in an Availability Zone that is not enabled for the load balancer)."
+                },
+                {
+                    "id": "ae5a01be-e43d-4b53-92e3-105008704d4b",
+                    "createdAt": "2025-10-20T11:01:22.236000+09:00",
+                    "message": "(service service-dev-myapp) registered 1 targets in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3)"
+                },
+                {
+                    "id": "38027246-0292-43d1-a2fe-bf805057c9b1",
+                    "createdAt": "2025-10-20T11:00:49.628000+09:00",
+                    "message": "(service service-dev-myapp) has started 1 tasks: (task aac07175c07d4111bb85d34a17d62dfa)."
+                },
+                {
+                    "id": "9b777c81-77f5-4401-865c-6feb61db13ad",
+                    "createdAt": "2025-10-20T10:58:51.378000+09:00",
+                    "message": "(service service-dev-myapp, taskSet ecs-svc/9285646795764602315) has begun draining connections on 1 tasks."
+                },
+                {
+                    "id": "24820049-fffc-4442-962a-8e16807bf887",
+                    "createdAt": "2025-10-20T10:58:42.699000+09:00",
+                    "message": "(service service-dev-myapp) deregistered 1 targets in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3)"
+                },
+                {
+                    "id": "3c585841-af70-4cca-b3ee-efe0471174b9",
+                    "createdAt": "2025-10-20T10:58:41.359000+09:00",
+                    "message": "(service service-dev-myapp) has stopped 1 running tasks: (task ad74b09099da48a0825b1f856ffc5195)."
+                },
+                {
+                    "id": "523c1aa9-c1bc-46ee-acb1-b3a14da0dec7",
+                    "createdAt": "2025-10-20T10:58:41.310000+09:00",
+                    "message": "(service service-dev-myapp) (task ad74b09099da48a0825b1f856ffc5195) (port 3849) is unhealthy in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3) due to (reason Target is in an Availability Zone that is not enabled for the load balancer)."
+                },
+                {
+                    "id": "4482d25f-8690-4fb9-8617-e95611b3e62b",
+                    "createdAt": "2025-10-20T10:55:30.008000+09:00",
+                    "message": "(service service-dev-myapp) registered 1 targets in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3)"
+                },
+                {
+                    "id": "66ec97b9-1072-468a-b99d-2331f88b245a",
+                    "createdAt": "2025-10-20T10:54:57.555000+09:00",
+                    "message": "(service service-dev-myapp) deregistered 1 targets in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3)"
+                },
+                {
+                    "id": "d35b1583-f4a5-41a2-9049-e28f027140cd",
+                    "createdAt": "2025-10-20T10:54:57.463000+09:00",
+                    "message": "(service service-dev-myapp, taskSet ecs-svc/9285646795764602315) has begun draining connections on 1 tasks."
+                },
+                {
+                    "id": "79336ea9-95c2-4b3a-9701-6230741b6816",
+                    "createdAt": "2025-10-20T10:54:57.458000+09:00",
+                    "message": "(service service-dev-myapp) deregistered 1 targets in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3)"
+                },
+                {
+                    "id": "ca2d5fd3-e4b4-49ef-a19f-3831e3c5d6b0",
+                    "createdAt": "2025-10-20T10:54:48.955000+09:00",
+                    "message": "(service service-dev-myapp) has stopped 1 running tasks: (task cd6dfe3b30b84b42b24d06c32d5deffe)."
+                },
+                {
+                    "id": "0e4f141d-a73d-487b-a97f-a13cb2ce796e",
+                    "createdAt": "2025-10-20T10:54:48.908000+09:00",
+                    "message": "(service service-dev-myapp) (task cd6dfe3b30b84b42b24d06c32d5deffe) (port 3849) is unhealthy in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3) due to (reason Target is in an Availability Zone that is not enabled for the load balancer)."
+                },
+                {
+                    "id": "64a8d60a-dced-4151-abb9-803bf313a29d",
+                    "createdAt": "2025-10-20T10:54:48.867000+09:00",
+                    "message": "(service service-dev-myapp) has started 1 tasks: (task ad74b09099da48a0825b1f856ffc5195). Amazon ECS replaced 1 tasks due to an unhealthy status."
+                },
+                {
+                    "id": "9aeee905-7c03-4528-8d9c-35aa9dd9b3ad",
+                    "createdAt": "2025-10-20T10:51:36.328000+09:00",
+                    "message": "(service service-dev-myapp) registered 1 targets in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3)"
+                },
+                {
+                    "id": "1d1407d7-a1eb-4bac-8162-89b3acb82fd1",
+                    "createdAt": "2025-10-20T10:50:54.896000+09:00",
+                    "message": "(service service-dev-myapp) has started 1 tasks: (task cd6dfe3b30b84b42b24d06c32d5deffe)."
+                },
+                {
+                    "id": "36a827c5-ecbc-44b4-9621-5e0a1a08a075",
+                    "createdAt": "2025-10-20T10:47:19.787000+09:00",
+                    "message": "(service service-dev-myapp) deregistered 1 targets in (target-group arn:aws:elasticloadbalancing:ap-northeast-2:************:targetgroup/group-dev-myapp/9d8d0b6852b1bdd3)"
+                },
+                {
+                    "id": "531ddc14-0f5f-4c2b-8e0b-9144158e4799",
+                    "createdAt": "2025-10-20T10:47:19.725000+09:00",
+                    "message": "(service service-dev-myapp, taskSet ecs-svc/9285646795764602315) has begun draining connections on 1 tasks."
+                }
+            ],
+            "createdAt": "2025-10-20T10:24:08.726000+09:00",
+            "placementConstraints": [],
+            "placementStrategy": [],
+            "networkConfiguration": {
+                "awsvpcConfiguration": {
+                    "subnets": [
+                        "subnet-*****************",
+                        "subnet-*****************",
+                        "subnet-*****************"
+                    ],
+                    "securityGroups": [
+                        "sg-******************",
+                        "sg-*********",
+                        "sg-******************"
+                    ],
+                    "assignPublicIp": "ENABLED"
+                }
+            },
+            "healthCheckGracePeriodSeconds": 180,
+            "schedulingStrategy": "REPLICA",
+            "deploymentController": {
+                "type": "ECS"
+            },
+            "createdBy": "arn:aws:iam::************:user/hugo",
+            "enableECSManagedTags": true,
+            "propagateTags": "NONE",
+            "enableExecuteCommand": true,
+            "availabilityZoneRebalancing": "ENABLED"
+        }
+    ],
+    "failures": []
+}

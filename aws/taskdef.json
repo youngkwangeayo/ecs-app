@@ -1,0 +1,140 @@
+{
+    "taskDefinition": {
+        "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:************:task-definition/task-dev-myapp:52",
+        "containerDefinitions": [
+            {
+                "name": "myapp",
+                "image": "************.dkr.ecr.ap-northeast-2.amazonaws.com/coffeezip/myapp:0.9.25-dev-16",
+                "cpu": 0,
+                "portMappings": [
+                    {
+                        "containerPort": 3849,
+                        "hostPort": 3849,
+                        "protocol": "tcp",
+                        "name": "myapp-port",
+                        "appProtocol": "http"
+                    }
+                ],
+                "essential": true,
+                "environment": [
+                    {
+                        "name": "RATE_LIMIT_MAX",
+                        "value": "100"
+                    },
+                    {
+                        "name": "LOG_RETENTION_DAYS",
+                        "value": "30"
+                    },
+                    {
+                        "name": "PORT",
+                        "value": "3849"
+                    },
+                    {
+                        "name": "JWT_EXPIRES_IN",
+                        "value": "24h"
+                    },
+                    {
+                        "name": "BCRYPT_ROUNDS",
+                        "value": "12"
+                    },
+                    {
+                        "name": "MAX_REQUEST_SIZE",
+                        "value": "5242880"
+                    },
+                    {
+                        "name": "LOG_DIR",
+                        "value": "./logs"
+                    },
+                    {
+                        "name": "JWT_SECRET",
+                        "value": "************"
+                    },
+                    {
+                        "name": "RATE_LIMIT_WRITE_MAX",
+                        "value": "50"
+                    },
+                    {
+                        "name": "NODE_ENV",
+                        "value": "dev"
+                    },
+                    {
+                        "name": "LOG_LEVEL",
+                        "value": "info"
+                    }
+                ],
+                "mountPoints": [],
+                "volumesFrom": [],
+                "startTimeout": 180,
+                "stopTimeout": 120,
+                "logConfiguration": {
+                    "logDriver": "awslogs",
+                    "options": {
+                        "awslogs-group": "/ecs/task-dev-myapp",
+                        "awslogs-create-group": "true",
+                        "awslogs-region": "ap-northeast-2",
+                        "awslogs-stream-prefix": "ecs"
+                    }
+                },
+                "systemControls": []
+            }
+        ],
+        "family": "task-dev-myapp",
+        "taskRoleArn": "arn:aws:iam::************:role/ecsTaskRole",
+        "executionRoleArn": "arn:aws:iam::************:role/ecsTaskExecutionRole",
+        "networkMode": "awsvpc",
+        "revision": 52,
+        "volumes": [],
+        "status": "ACTIVE",
+        "requiresAttributes": [
+            {
+                "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+            },
+            {
+                "name": "ecs.capability.execution-role-awslogs"
+            },
+            {
+                "name": "com.amazonaws.ecs.capability.ecr-auth"
+            },
+            {
+                "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+            },
+            {
+                "name": "com.amazonaws.ecs.capability.task-iam-role"
+            },
+            {
+                "name": "ecs.capability.container-ordering"
+            },
+            {
+                "name": "ecs.capability.execution-role-ecr-pull"
+            },
+            {
+                "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+            },
+            {
+                "name": "ecs.capability.task-eni"
+            },
+            {
+                "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+            }
+        ],
+        "placementConstraints": [],
+        "compatibilities": [
+            "EC2",
+            "MANAGED_INSTANCES",
+            "FARGATE"
+        ],
+        "runtimePlatform": {
+            "cpuArchitecture": "X86_64",
+            "operatingSystemFamily": "LINUX"
+        },
+        "requiresCompatibilities": [
+            "FARGATE"
+        ],
+        "cpu": "512",
+        "memory": "1024",
+        "registeredAt": "2025-10-20T14:31:51.589000+09:00",
+        "registeredBy": "arn:aws:iam::************:user/hugo",
+        "enableFaultInjection": false
+    },
+    "tags": []
+}
