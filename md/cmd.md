@@ -17,7 +17,7 @@ aws ecs describe-task-definition --task-definition task-dev-myapp >> aws/taskdef
 # 오토스케일 정의
 aws application-autoscaling describe-scalable-targets --service-namespace ecs --resource-ids service/ecs-dev-myapp/service-dev-myapp >> aws/autoscal.json
 # 오토스케일 정책 트리거
-aws application-autoscaling describe-scaling-policies \                                                                                                              
+aws application-autoscaling describe-scaling-policies \
   --service-namespace ecs \
   --resource-id service/ecs-dev-myapp/service-dev-myapp \
   --output yaml \
