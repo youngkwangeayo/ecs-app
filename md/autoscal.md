@@ -34,7 +34,10 @@ aws ecs describe-services \
 # 직접 부하 테스트
 
 # ECS Task 내에서 직접 부하 생성
-yes > /dev/null &
+yes > /dev/null &        # 백그라운드로 yes 실행
+YES_PID=$!
+sleep 120
+kill $YES_PID            # 또는 pkill -P $YES_PID 등
 
 # 또는
 node -e "while(true){}"
