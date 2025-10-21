@@ -2,18 +2,18 @@
     "ScalableTargets": [
         {
             "ServiceNamespace": "ecs",
-            "ResourceId": "service/ecs-dev-coffeezip/service-dev-coffeezip-cms",
+            "ResourceId": "service/ecs-dev-mysolution/service-dev-myapp",
             "ScalableDimension": "ecs:service:DesiredCount",
             "MinCapacity": 1,
             "MaxCapacity": 3,
-            "RoleARN": "arn:aws:iam::365485194891:role/aws-service-role/ecs.application-autoscaling.amazonaws.com/AWSServiceRoleForApplicationAutoScaling_ECSService",
+            "RoleARN": "arn:aws:iam::************:role/aws-service-role/ecs.application-autoscaling.amazonaws.com/AWSServiceRoleForApplicationAutoScaling_ECSService",
             "CreationTime": "2025-10-21T11:27:28.564000+09:00",
             "SuspendedState": {
                 "DynamicScalingInSuspended": false,
                 "DynamicScalingOutSuspended": false,
                 "ScheduledScalingSuspended": false
             },
-            "ScalableTargetARN": "arn:aws:application-autoscaling:ap-northeast-2:365485194891:scalable-target/0ec54e70df19046e4c6392e22f7a299ad0a5"
+            "ScalableTargetARN": "arn:aws:application-autoscaling:ap-northeast-2:************:scalable-target/0ec54e70df19046e4c6392e22f7a299ad0a5"
         }
     ]
 }

@@ -26,8 +26,8 @@ aws application-autoscaling describe-scaling-policies \
 
 # 상태확인
 aws ecs describe-services \
-  --cluster ecs-dev-coffeezip \
-  --services service-dev-coffeezip-cms \
+  --cluster ecs-dev-mysolution \
+  --services service-dev-myapp \
   --query 'services[0].{desiredCount:desiredCount, runningCount:runningCount}' \
   --output table
 
@@ -37,7 +37,7 @@ aws ecs describe-services \
 # 접속
 
 aws ecs execute-command \
-  --cluster ecs-dev-coffeezip \
+  --cluster ecs-dev-mysolution \
   --task <TASK_ID> \
   --container <CONTAINER_NAME> \
   --command "/bin/sh" \

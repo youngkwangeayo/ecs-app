@@ -1,14 +1,14 @@
 ScalingPolicies:
 - Alarms:
-  - AlarmARN: arn:aws:cloudwatch:ap-northeast-2:365485194891:alarm:TargetTracking-service/ecs-dev-coffeezip/service-dev-coffeezip-cms-AlarmHigh-675eba82-78ca-4348-9b34-6e5cb2f028f1
-    AlarmName: TargetTracking-service/ecs-dev-coffeezip/service-dev-coffeezip-cms-AlarmHigh-675eba82-78ca-4348-9b34-6e5cb2f028f1
-  - AlarmARN: arn:aws:cloudwatch:ap-northeast-2:365485194891:alarm:TargetTracking-service/ecs-dev-coffeezip/service-dev-coffeezip-cms-AlarmLow-ebab6d45-4ba3-4784-842b-f4cc0ad9b3d2
-    AlarmName: TargetTracking-service/ecs-dev-coffeezip/service-dev-coffeezip-cms-AlarmLow-ebab6d45-4ba3-4784-842b-f4cc0ad9b3d2
+  - AlarmARN: arn:aws:cloudwatch:ap-northeast-2:************:alarm:TargetTracking-service/ecs-dev-mysolution/service-dev-myapp-AlarmHigh-675eba82-78ca-4348-9b34-6e5cb2f028f1
+    AlarmName: TargetTracking-service/ecs-dev-mysolution/service-dev-myapp-AlarmHigh-675eba82-78ca-4348-9b34-6e5cb2f028f1
+  - AlarmARN: arn:aws:cloudwatch:ap-northeast-2:************:alarm:TargetTracking-service/ecs-dev-mysolution/service-dev-myapp-AlarmLow-ebab6d45-4ba3-4784-842b-f4cc0ad9b3d2
+    AlarmName: TargetTracking-service/ecs-dev-mysolution/service-dev-myapp-AlarmLow-ebab6d45-4ba3-4784-842b-f4cc0ad9b3d2
   CreationTime: '2025-10-21T11:40:13.380000+09:00'
-  PolicyARN: arn:aws:autoscaling:ap-northeast-2:365485194891:scalingPolicy:4e70df19-046e-4c63-92e2-2f7a299ad0a5:resource/ecs/service/ecs-dev-coffeezip/service-dev-coffeezip-cms:policyName/autoScale-dev-coffeezip
+  PolicyARN: arn:aws:autoscaling:ap-northeast-2:************:scalingPolicy:4e70df19-046e-4c63-92e2-2f7a299ad0a5:resource/ecs/service/ecs-dev-mysolution/service-dev-myapp:policyName/autoScale-dev-coffeezip
   PolicyName: autoScale-dev-coffeezip
   PolicyType: TargetTrackingScaling
-  ResourceId: service/ecs-dev-coffeezip/service-dev-coffeezip-cms
+  ResourceId: service/ecs-dev-mysolution/service-dev-myapp
   ScalableDimension: ecs:service:DesiredCount
   ServiceNamespace: ecs
   TargetTrackingScalingPolicyConfiguration:
