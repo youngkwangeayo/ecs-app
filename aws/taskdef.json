@@ -11,7 +11,7 @@
                         "containerPort": 3849,
                         "hostPort": 3849,
                         "protocol": "tcp",
-                        "name": "myapp-port",
+                        "name": "coffeezip-cms-port",
                         "appProtocol": "http"
                     }
                 ],
@@ -64,7 +64,7 @@
                 ],
                 "mountPoints": [],
                 "volumesFrom": [],
-                "startTimeout": 180,
+                "startTimeout": 90,
                 "stopTimeout": 120,
                 "logConfiguration": {
                     "logDriver": "awslogs",
@@ -73,7 +73,18 @@
                         "awslogs-create-group": "true",
                         "awslogs-region": "ap-northeast-2",
                         "awslogs-stream-prefix": "ecs"
-                    }
+                    },
+                    "secretOptions": []
+                },
+                "healthCheck": {
+                    "command": [
+                        "CMD-SHELL",
+                        "curl -f http://localhost:8080/health || exit 1"
+                    ],
+                    "interval": 30,
+                    "timeout": 5,
+                    "retries": 2,
+                    "startPeriod": 90
                 },
                 "systemControls": []
             }
@@ -82,7 +93,7 @@
         "taskRoleArn": "arn:aws:iam::************:role/ecsTaskRole",
         "executionRoleArn": "arn:aws:iam::************:role/ecsTaskExecutionRole",
         "networkMode": "awsvpc",
-        "revision": 52,
+        "revision": 60,
         "volumes": [],
         "status": "ACTIVE",
         "requiresAttributes": [
@@ -100,6 +111,9 @@
             },
             {
                 "name": "com.amazonaws.ecs.capability.task-iam-role"
+            },
+            {
+                "name": "ecs.capability.container-health-check"
             },
             {
                 "name": "ecs.capability.container-ordering"
