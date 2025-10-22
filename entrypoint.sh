@@ -11,6 +11,7 @@ if [ ! -d "$LOG_DIR" ]; then
 fi
 
 # 부팅요청
+TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")
 echo "{\"timestamp\":\"${TIMESTAMP}\",\"level\":\"info\",\"subject\":\"app boot\",\"message\":\"mysolution CMS application boot request received. Starting app on port ${PORT}\"}" >> "$INFO_LOG"
 
 # Prisma pull 실행 및 결과 캡처
